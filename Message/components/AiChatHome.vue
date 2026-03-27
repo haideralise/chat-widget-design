@@ -46,17 +46,6 @@
           </div>
         </div>
 
-        <!-- Article card -->
-        <div class="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.08)] px-5 py-4 cursor-pointer hover:shadow-[0_3px_12px_rgba(0,0,0,0.12)] transition-shadow">
-          <p class="font-bold text-[#1a1a1a] text-[15px] leading-tight">How to setup Custom Domain for Sendy</p>
-          <p class="text-[#8b8b8b] text-[13px] mt-1.5 leading-[1.55]">Sendy supports running the application on any domain of your...</p>
-        </div>
-
-        <!-- Status Page link -->
-        <div class="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.08)] px-5 py-4 flex items-center justify-between cursor-pointer hover:shadow-[0_3px_12px_rgba(0,0,0,0.12)] transition-shadow">
-          <p class="font-medium text-[#1a1a1a] text-[15px]">Status Page</p>
-          <i class="fa-solid fa-arrow-up-right-from-square text-[#0a7d5a] text-[14px]"></i>
-        </div>
       </div>
     </div>
 
