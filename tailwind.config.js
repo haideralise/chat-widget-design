@@ -2,9 +2,7 @@
 export default {
   content: [
     './index.html',
-    './App.vue',
-    './Message/**/*.vue',
-    './components/**/*.vue',
+    './**/*.vue',
   ],
   theme: {
     extend: {},

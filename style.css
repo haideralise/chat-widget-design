@@ -2,8 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --widget-primary: #0a7d5a;
+  --widget-primary-hover: #086b4d;
+  --widget-primary-light: #e8f5f0;
+  --widget-primary-rgb: 10, 125, 90;
+  --widget-header-text: #1a5c3a;
+  --widget-gradient-1: #b8dcc8;
+  --widget-gradient-2: #c5e3d3;
+  --widget-gradient-3: #d8ecdf;
+  --widget-gradient-4: #edf6f0;
+  --widget-gradient-mobile-start: #0a7d5a;
+  --widget-gradient-mobile-end: #065a40;
+  --widget-avatar-bg: 0a7d5a;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: #f0f0f0;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #0a0a0b;
 }

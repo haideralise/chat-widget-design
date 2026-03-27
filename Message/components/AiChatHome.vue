@@ -13,14 +13,14 @@
         <!-- Avatar -->
         <div class="w-[52px] h-[52px] rounded-full overflow-hidden mb-8 shadow-md">
           <img
-            src="https://ui-avatars.com/api/?name=AI&background=2d9a78&color=fff&size=52&bold=true&font-size=0.4"
+            :src="`https://ui-avatars.com/api/?name=AI&background=${avatarBg}&color=fff&size=52&bold=true&font-size=0.4`"
             alt="Avatar"
             class="w-full h-full object-cover"
           />
         </div>
 
-        <h2 class="text-[26px] font-bold leading-[1.2] text-[#1a5c3a]">Hi there 👋</h2>
-        <h2 class="text-[26px] font-bold leading-[1.2] text-[#1a5c3a]">How can we help?</h2>
+        <h2 class="text-[26px] font-bold leading-[1.2] text-[var(--widget-header-text)]">Hi there 👋</h2>
+        <h2 class="text-[26px] font-bold leading-[1.2] text-[var(--widget-header-text)]">How can we help?</h2>
       </div>
 
       <!-- White cards overlapping into the gradient -->
@@ -55,19 +55,23 @@
 </template>
 
 <script setup>
+import { inject, computed } from "vue";
 import WidgetTabs from "./WidgetTabs.vue";
 
 defineEmits(["open-chat", "switch-tab", "close"]);
+
+const themeColor = inject("themeColor");
+const avatarBg = computed(() => themeColor.value.slice(1));
 </script>
 
 <style scoped>
 .home-header-bg {
-  background: linear-gradient(180deg, #b8dcc8 0%, #c5e3d3 30%, #d8ecdf 55%, #edf6f0 80%, #ffffff 100%);
+  background: linear-gradient(180deg, var(--widget-gradient-1) 0%, var(--widget-gradient-2) 30%, var(--widget-gradient-3) 55%, var(--widget-gradient-4) 80%, #ffffff 100%);
 }
 
 @media (max-width: 767px) {
   .home-header-bg {
-    background: linear-gradient(180deg, #0a7d5a 0%, #065a40 100%);
+    background: linear-gradient(180deg, var(--widget-gradient-mobile-start) 0%, var(--widget-gradient-mobile-end) 100%);
   }
   .home-header-bg h2 {
     color: #ffffff !important;

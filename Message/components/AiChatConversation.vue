@@ -12,8 +12,8 @@
           </svg>
         </div>
         <div>
-          <p class="text-[14px] font-bold text-[#1a1a1a]">Fin</p>
-          <p class="text-[12px] text-gray-500">The team can also help</p>
+          <p class="text-[14px] font-bold text-[#1a1a1a]">AI Assistant</p>
+          <p class="text-[12px] text-gray-500">Typically replies instantly</p>
         </div>
       </div>
       <button class="text-gray-400 hover:text-gray-600 mr-1">
@@ -37,14 +37,14 @@
               v-if="!messages[index + 1] || messages[index + 1].role !== 'ai'"
               class="text-[11px] text-gray-400 mt-1.5 ml-1"
             >
-              Fin &middot; AI Agent &middot; {{ msg.time }}
+              AI Assistant &middot; {{ msg.time }}
             </p>
           </div>
         </div>
         <!-- User Message (text) -->
         <div v-else-if="!msg.attachment" class="flex justify-end chat-bubble-in">
           <div class="max-w-[310px]">
-            <div class="bg-[#0a7d5a] text-white rounded-2xl rounded-br-md px-4 py-3">
+            <div class="bg-[var(--widget-primary)] text-white rounded-2xl rounded-br-md px-4 py-3">
               <p class="text-[14px] leading-relaxed whitespace-pre-wrap">{{ msg.text }}</p>
             </div>
           </div>
@@ -53,11 +53,11 @@
         <div v-else class="flex justify-end chat-bubble-in">
           <div class="max-w-[310px]">
             <!-- Image -->
-            <div v-if="msg.attachment.type === 'image'" class="bg-[#0a7d5a] rounded-2xl rounded-br-md p-1.5">
+            <div v-if="msg.attachment.type === 'image'" class="bg-[var(--widget-primary)] rounded-2xl rounded-br-md p-1.5">
               <img :src="msg.attachment.url" :alt="msg.attachment.name" class="rounded-xl max-w-full max-h-48 object-cover" />
             </div>
             <!-- Audio -->
-            <div v-else-if="msg.attachment.type === 'audio'" class="bg-[#0a7d5a] text-white rounded-2xl rounded-br-md px-4 py-3">
+            <div v-else-if="msg.attachment.type === 'audio'" class="bg-[var(--widget-primary)] text-white rounded-2xl rounded-br-md px-4 py-3">
               <div class="flex items-center gap-2 mb-2">
                 <i class="fa-solid fa-microphone text-xs"></i>
                 <span class="text-[13px]">Voice message</span>
@@ -69,7 +69,7 @@
               <img :src="msg.attachment.url" :alt="msg.attachment.name" class="max-w-full max-h-48 object-cover" />
             </div>
             <!-- File -->
-            <div v-else class="bg-[#0a7d5a] text-white rounded-2xl rounded-br-md px-4 py-3">
+            <div v-else class="bg-[var(--widget-primary)] text-white rounded-2xl rounded-br-md px-4 py-3">
               <div class="flex items-center gap-2">
                 <i class="fa-solid fa-file text-sm"></i>
                 <span class="text-[13px] truncate">{{ msg.attachment.name }}</span>
@@ -97,8 +97,8 @@
       <div v-if="filePreview.isImage" class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
         <img :src="filePreview.url" class="w-full h-full object-cover" />
       </div>
-      <div v-else class="w-12 h-12 rounded-lg bg-[#0a7d5a]/10 flex items-center justify-center flex-shrink-0">
-        <i class="fa-solid fa-file text-[#0a7d5a]"></i>
+      <div v-else class="w-12 h-12 rounded-lg bg-[var(--widget-primary-light)] flex items-center justify-center flex-shrink-0">
+        <i class="fa-solid fa-file text-[var(--widget-primary)]"></i>
       </div>
       <div class="flex-1 min-w-0">
         <p class="text-[13px] text-[#1a1a1a] truncate">{{ filePreview.name }}</p>
@@ -121,14 +121,14 @@
           <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
         </span>
       </div>
-      <button @click="sendRecording" class="w-8 h-8 bg-[#0a7d5a] text-white rounded-full flex items-center justify-center hover:bg-[#096b4d]">
+      <button @click="sendRecording" class="w-8 h-8 bg-[var(--widget-primary)] text-white rounded-full flex items-center justify-center hover:bg-[var(--widget-primary-hover)]">
         <i class="fa-solid fa-arrow-up text-xs"></i>
       </button>
     </div>
 
     <!-- Chat Input -->
     <div v-if="!audioRecorder.is_recording" class="px-4 py-3 flex-shrink-0 relative">
-      <div class="border border-[#0a7d5a] rounded-2xl px-4 py-2.5 focus-within:shadow-[0_0_0_1px_#0a7d5a] transition-shadow">
+      <div class="border border-[var(--widget-primary)] rounded-2xl px-4 py-2.5 focus-within:shadow-[0_0_0_1px_var(--widget-primary)] transition-shadow">
         <textarea
           ref="textareaRef"
           v-model="userInput"
@@ -187,7 +187,7 @@
             @click="handleSend"
             :disabled="!userInput.trim() && !filePreview"
             class="w-8 h-8 rounded-full flex items-center justify-center transition-colors"
-            :class="(userInput.trim() || filePreview) ? 'bg-[#0a7d5a] text-white hover:bg-[#096b4d]' : 'bg-gray-200 text-gray-400'"
+            :class="(userInput.trim() || filePreview) ? 'bg-[var(--widget-primary)] text-white hover:bg-[var(--widget-primary-hover)]' : 'bg-gray-200 text-gray-400'"
           >
             <i class="fa-solid fa-arrow-up text-xs"></i>
           </button>
@@ -211,9 +211,10 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, nextTick } from "vue";
-import EmojiPicker from "vue3-emoji-picker";
-import "vue3-emoji-picker/css";
+import { ref, reactive, watch, nextTick, defineAsyncComponent } from "vue";
+const EmojiPicker = defineAsyncComponent(() => {
+  return import("vue3-emoji-picker/css").then(() => import("vue3-emoji-picker"));
+});
 import GifPicker from "@/components/giphy/GifPicker.vue";
 
 const props = defineProps({

@@ -1,16 +1,16 @@
 <template>
-  <div class="relative min-h-screen">
+  <div class="relative">
     <!-- Floating Chat Button (rounded square, hidden on mobile when open) -->
     <button
       v-if="!state.isOpen"
       @click="state.isOpen = true"
-      class="fixed bottom-5 right-5 w-[60px] h-[60px] bg-[#0a7d5a] rounded-2xl shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-105 hover:bg-[#096b4d] z-50"
+      class="fixed bottom-5 right-5 w-[60px] h-[60px] bg-[var(--widget-primary)] rounded-2xl shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-105 hover:bg-[var(--widget-primary-hover)] z-50"
     >
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
         <path d="M14 2C7.373 2 2 6.925 2 13c0 3.38 1.674 6.41 4.3 8.49.09.07.15.18.15.3l.03 2.71c.01.49.53.81.97.59l3.02-1.51c.1-.05.21-.06.32-.04.99.22 2.04.34 3.13.34 6.627 0 12-4.925 12-11S20.627 2 14 2z" fill="white"/>
-        <circle cx="9.5" cy="13" r="1.5" fill="#0a7d5a"/>
-        <circle cx="14" cy="13" r="1.5" fill="#0a7d5a"/>
-        <circle cx="18.5" cy="13" r="1.5" fill="#0a7d5a"/>
+        <circle cx="9.5" cy="13" r="1.5" style="fill: var(--widget-primary)"/>
+        <circle cx="14" cy="13" r="1.5" style="fill: var(--widget-primary)"/>
+        <circle cx="18.5" cy="13" r="1.5" style="fill: var(--widget-primary)"/>
       </svg>
     </button>
 
@@ -18,7 +18,7 @@
     <button
       v-if="state.isOpen"
       @click="closeWidget"
-      class="fixed bottom-5 right-5 w-[60px] h-[60px] bg-[#0a7d5a] rounded-2xl shadow-lg items-center justify-center transition-all duration-200 hover:scale-105 hover:bg-[#096b4d] z-50 hidden md:flex"
+      class="fixed bottom-5 right-5 w-[60px] h-[60px] bg-[var(--widget-primary)] rounded-2xl shadow-lg items-center justify-center transition-all duration-200 hover:scale-105 hover:bg-[var(--widget-primary-hover)] z-50 hidden md:flex"
     >
       <i class="fa-solid fa-chevron-down text-white text-xl"></i>
     </button>
@@ -83,7 +83,7 @@ const state = reactive({
   chatMessages: [
     {
       role: "ai",
-      text: "Hi there! You're speaking with Fin AI Agent.\nI'm well trained and ready to assist you today but you can ask for the team at any time.",
+      text: "Hi there! You're speaking with our AI Assistant.\nI'm ready to help you today, but you can ask for the team at any time.",
       time: "Just now",
     },
     {

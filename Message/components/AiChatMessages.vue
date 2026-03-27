@@ -28,8 +28,8 @@
         class="px-4 py-3 border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors"
       >
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 bg-[#e8f5f0] rounded-full flex items-center justify-center flex-shrink-0">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="text-[#0a7d5a]">
+          <div class="w-8 h-8 bg-[var(--widget-primary-light)] rounded-full flex items-center justify-center flex-shrink-0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="text-[var(--widget-primary)]">
               <path d="M12 2L9.5 9.5H2L8 14L5.5 22L12 17L18.5 22L16 14L22 9.5H14.5L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             </svg>
           </div>
@@ -46,7 +46,7 @@
     <div class="p-4">
       <button
         @click="$emit('open-chat')"
-        class="mx-auto bg-[#0a7d5a] hover:bg-[#096b4d] text-white font-medium py-2.5 px-6 rounded-full text-[13px] flex items-center justify-center gap-2 transition-colors"
+        class="mx-auto bg-[var(--widget-primary)] hover:bg-[var(--widget-primary-hover)] text-white font-medium py-2.5 px-6 rounded-full text-[13px] flex items-center justify-center gap-2 transition-colors"
       >
         Ask a question
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="text-white">
