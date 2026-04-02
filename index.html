@@ -9,7 +9,55 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="app"></div>
-  <script type="module" src="/main.js"></script>
+<h1>Testing widget</h1>
+
+  <script>
+  (function(e, t, n) {
+    let a = document.createElement("ra-chatbot-widget");
+    a.id = "ra_wc_chatbot";
+    a.setAttribute("slug", "PymjBRwURg0HdOTB9jhtQOvu1ytwrdiG7Z7qMfWX");
+    document.body.appendChild(a);
+    
+    let d = e.scripts[e.scripts.length - 1],
+        r = e.createElement("script");
+
+    r.id = "ra_chatbot" + Math.floor(200 * Math.random());
+    r.defer = true;
+    r.src = "https://sitewidgetstage.net/chatbot-sdk.js";
+
+    r.onload = r.onreadystatechange = function() {
+      let e = this.readyState;
+      if (!e || e === "complete" || e === "loaded") {
+        // Callback after script load (if needed)
+      }
+    };
+
+    d.parentElement.insertBefore(r, d.nextSibling);
+  })(document);
+  </script>
+  <script>
+  (function(e, t, n) {
+    let a = document.createElement("ra-chatbot-widget");
+    a.id = "ra_wc_chatbot";
+    a.setAttribute("slug", "FnWFZdEKEMGQAvDXJulrWwlrpZjGMyWiwvJ7jYaw");
+    document.body.appendChild(a);
+    
+    let d = e.scripts[e.scripts.length - 1],
+        r = e.createElement("script");
+
+    r.id = "ra_chatbot" + Math.floor(200 * Math.random());
+    r.defer = true;
+    r.src = "https://sitewidget.net/chatbot-sdk.js";
+
+    r.onload = r.onreadystatechange = function() {
+      let e = this.readyState;
+      if (!e || e === "complete" || e === "loaded") {
+        // Callback after script load (if needed)
+      }
+    };
+
+    d.parentElement.insertBefore(r, d.nextSibling);
+  })(document);
+  </script>
 </body>
 </html>
